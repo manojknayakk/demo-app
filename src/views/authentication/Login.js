@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { store } from '../../store';
+import { Redirect } from 'react-router-dom';
 
-function Login() {
+function Login (props) {
 
   const globalState = useContext(store);
   const { dispatch } = globalState;
@@ -17,7 +18,8 @@ function Login() {
       lastName: "Cena",
       email: "john.cena@nasa.com"
     }
-    dispatch({ type: 'login', newState: newState })
+    dispatch({ type: 'login', newState: newState });
+    props.history.push('');
   }
 
   return (
